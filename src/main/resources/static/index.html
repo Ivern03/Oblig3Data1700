@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oblig1</title>
+    <link rel="stylesheet" href="Style/style.css">
+    <script src="/Script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form class="form">
+                <h1>Bestilling av kinobiletter</h1>
+
+                <br>
+
+                <label for="filmvalg">Film: </label>
+                <select id="filmvalg" onchange="inputSjekkFilm(this.value)">
+                    <option value="velgFilm">Velg film her</option>
+                    <option value="Napoleon">Napoleon</option>
+                    <option value="Oppenheimer">Oppenheimer</option>
+                    <option value="Insidious">Insidious</option>
+                    <option value="Creed">Creed</option>
+                </select>
+                <p id="feilmeldingFilm"></p>
+
+                <br>
+
+                <label for="antall">Antall: </label>
+                <input type="text" id="antall" onchange="inputSjekkAntall(this.value)">
+                <p id="feilmeldingAntall"></p>
+
+                <br>
+
+                <label for="fornavn">Fornavn: </label>
+                <input type="text" id="fornavn" onchange="inputSjekkFornavn(this.value)">
+                <p id="feilmeldingFornavn"></p>
+
+                <label for="etternavn">Etternavn: </label>
+                <input type="text" id="etternavn" onchange="inputSjekkEtternavn(this.value)">
+                <p id="feilmeldingEtternavn"></p>
+
+                <label for="telefonnr">Telefonnr: </label>
+                <input type="tel" id="telefonnr" onchange="inputSjekkTelefonnr(this.value)">
+                <p id="feilmeldingTlf"></p>
+
+                <label for="epost">Epost: </label>
+                <input type="email" id="epost" onchange="inputSjekkEmail(this.value)">
+                <p id="feilmeldingEpost"></p>
+
+            </form>
+
+            <button class="btn btn-primary" onclick="kjopBillett()">Kjøp Billett</button>
+        </div>
+        <div class="col-md-8">
+            <h2>Alle billetter: </h2>
+
+            <div id="billettene" class="table-responsive"></div>
+            <button class="btn btn-danger" onclick="slettBilletter()">Slett alle billettene</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
