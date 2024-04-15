@@ -35,3 +35,8 @@ label {
     font-weight: bold;
 }
 
+.checkmarkGreenFilm,.checkmarkGreenAntall,.checkmarkGreenFornavn,.checkmarkGreenEtternavn,.checkmarkGreenTelefonnr,.checkmarkGreenEpost{
+    visibility: hidden;
+    width: 30px;
+    height: 30px;
+}

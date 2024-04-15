@@ -1,12 +1,13 @@
-//const bestillingArray = [];
 
 // Input validation for the selection of different movies
 
 function inputSjekkFilm(film){
     if(film === 'velgFilm'){
         feilmeldingFilm.innerHTML = "Velg en film!";
+        $(".checkmarkGreenFilm").css("visibility", "hidden");
     }else{
         feilmeldingFilm.innerHTML = '';
+        $(".checkmarkGreenFilm").css("visibility", "visible");
         return true;
     }
 }
@@ -16,12 +17,16 @@ function inputSjekkFilm(film){
 function inputSjekkAntall(antallSjekk){
     if(isNaN(antallSjekk)){
         feilmeldingAntall.innerHTML = "Skriv inn et gyldig tall!";
+        $(".checkmarkGreenAntall").css("visibility", "hidden");
     }else if(antallSjekk < 1){
         feilmeldingAntall.innerHTML = "Du må kjøpe minst 1 billett";
+        $(".checkmarkGreenAntall").css("visibility", "hidden");
     } else if (antallSjekk > 50) {
         feilmeldingAntall.innerHTML = "Du kan ikke kjøpe flere enn 50 billetter";
+        $(".checkmarkGreenAntall").css("visibility", "hidden");
     }else{
         feilmeldingAntall.innerHTML =  '';
+        $(".checkmarkGreenAntall").css("visibility", "visible");
         return true;
     }
 }
@@ -31,17 +36,21 @@ function inputSjekkAntall(antallSjekk){
 function inputSjekkFornavn(fornavn){
     if(fornavn === ''){
         feilmeldingFornavn.innerHTML = "Skriv inn et gyldig fornavn!";
+        $(".checkmarkGreenFornavn").css("visibility", "hidden");
     } else if (fornavn.length < 1 || fornavn.length > 30) {
         feilmeldingFornavn.innerHTML = "Fornavn kan ikke være mindre enn 1 tegn eller større enn 30 tegn";
+        $(".checkmarkGreenFornavn").css("visibility", "hidden");
 
         // Used and adapted code from: "https://stackoverflow.com/questions/16667329/special-character-validation" for testing certain characters / numbers / special characters etc in fornavn,
         // etternavn, telefonnr and email.
 
     } else if (!/^[a-zA-ZÆØÅæøå-]+$/.test(fornavn)) {
         feilmeldingFornavn.innerHTML = "Fornavn kan kun inneholde bokstaver, har du flere fornavn, bruk - imellom";
+        $(".checkmarkGreenFornavn").css("visibility", "hidden");
     } else {
         //valgtFornavn = innFornavn;
         feilmeldingFornavn.innerHTML = '';
+        $(".checkmarkGreenFornavn").css("visibility", "visible");
         return true;
     }
 }
@@ -51,12 +60,16 @@ function inputSjekkFornavn(fornavn){
 function inputSjekkEtternavn(etternavn){
     if(etternavn === ''){
         feilmeldingEtternavn.innerHTML = "Skriv inn et gyldig etternavn!";
+        $(".checkmarkGreenEtternavn").css("visibility", "hidden");
     } else if (etternavn.length < 1 || etternavn.length > 30) {
         feilmeldingEtternavn.innerHTML = "Etternavn kan ikke være mindre enn 1 tegn eller større enn 30 tegn";
+        $(".checkmarkGreenEtternavn").css("visibility", "hidden");
     } else if (!/^[a-zA-ZÆØÅæøå-]+$/.test(etternavn)) {
         feilmeldingEtternavn.innerHTML = "Etternavn kan kun inneholde bokstaver, har du flere etternavn, bruk - imellom";
+        $(".checkmarkGreenEtternavn").css("visibility", "hidden");
     } else {
         feilmeldingEtternavn.innerHTML = '';
+        $(".checkmarkGreenEtternavn").css("visibility", "visible");
         return true;
     }
 }
@@ -66,10 +79,13 @@ function inputSjekkEtternavn(etternavn){
 function inputSjekkTelefonnr(tlfnr){
     if(tlfnr === ''){
         feilmeldingTlf.innerHTML = "Skriv inn et gyldig telefonnr!";
+        $(".checkmarkGreenTelefonnr").css("visibility", "hidden");
     } else if(!/^[94]\d{7}$/.test(tlfnr)){
         feilmeldingTlf.innerHTML = "Du har skrevet inn et ugyldig telefonnr (Bare norske tlf nr er akseptable, altså 8 siffre som starter på enten 4 eller 9)";
+        $(".checkmarkGreenTelefonnr").css("visibility", "hidden");
     } else{
         feilmeldingTlf.innerHTML = '';
+        $(".checkmarkGreenTelefonnr").css("visibility", "visible");
         return true;
     }
 }
@@ -78,10 +94,13 @@ function inputSjekkTelefonnr(tlfnr){
 function inputSjekkEmail(email){
     if(email === ''){
         feilmeldingEpost.innerHTML = "Skriv inn en gyldig Epost!";
+        $(".checkmarkGreenEpost").css("visibility", "hidden");
     }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
         feilmeldingEpost.innerHTML = "Du har skrevet inn en ugyldig email";
+        $(".checkmarkGreenEpost").css("visibility", "hidden");
     }else{
         feilmeldingEpost.innerHTML = '';
+        $(".checkmarkGreenEpost").css("visibility", "visible");
         return true;
     }
 }
@@ -103,7 +122,7 @@ function kjopBillett(){
 
     // Input validation for the different inputs
 
-    if(inputSjekkFilm(innFilm)){
+    if(inputSjekkFilm(innFilm)) {
         valgtFilm = innFilm;
         feilmeldingFilm.innerHTML = '';
     }
@@ -136,15 +155,14 @@ function kjopBillett(){
     // Checking if all inputs are valid, then pushing the inputs into the bestillingArray, which then gets printed out into the table "utBilletter"
 
     if(inputSjekkAntall(innAntall) && inputSjekkEtternavn(innEtternavn) && inputSjekkFilm(innFilm) && inputSjekkFornavn(innFornavn) && inputSjekkTelefonnr(innTlf) && inputSjekkEmail(innEpost)){
-        //bestillingArray.push({filmNavn:valgtFilm, antall: valgtAntall, fornavn: valgtFornavn, etternavn: valgtEtternavn, telefonnr: valgtTlf, epost: valgtEpost});
-
+        $(".checkmarkGreen").css("visibility", "hidden");
         const bestillingArray = {filmNavn:valgtFilm, antall: valgtAntall, fornavn: valgtFornavn, etternavn: valgtEtternavn, telefonnr: valgtTlf, epost: valgtEpost};
         $.post("/lagre",bestillingArray, function (){
             hentAlle();
         })
     }
 
-    // Resets/empties the insert fields
+    // Resets/empties the insert fields and hides checkmarks
 
     filmvalg.value = "velgFilm";
     antall.value = "";
@@ -152,6 +170,12 @@ function kjopBillett(){
     etternavn.value = "";
     telefonnr.value = "";
     epost.value = "";
+    $(".checkmarkGreenFilm").css("visibility", "hidden");
+    $(".checkmarkGreenAntall").css("visibility", "hidden");
+    $(".checkmarkGreenFornavn").css("visibility", "hidden");
+    $(".checkmarkGreenEtternavn").css("visibility", "hidden");
+    $(".checkmarkGreenTelefonnr").css("visibility", "hidden");
+    $(".checkmarkGreenEpost").css("visibility", "hidden");
 }
 
 function hentAlle(){
@@ -162,7 +186,7 @@ function hentAlle(){
 
 // Formatting the table for the print out.
 function formaterBillett(billetter) {
-    let ut = "<table class='table table-striped'><thead><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></thead>";
+    let ut = "<table class='table table-striped'><thead class='thead-dark'><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></thead>";
 
     for (const billett of billetter) {
         ut += "<tr><td>" +billett.filmNavn + "</td><td>" +billett.antall + "</td><td>" + billett.fornavn + "</td><td>" + billett.etternavn
