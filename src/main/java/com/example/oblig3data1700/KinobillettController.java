@@ -2,7 +2,6 @@ package com.example.oblig3data1700;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,10 +28,5 @@ public class KinobillettController {
     @GetMapping("/slettAlle")
     public void slettAlle() {
         rep.slettAlleBilletter();
-    }
-
-    @GetMapping("/slettEn")
-    public void slettEn(int id){
-        rep.slettEn(id);
     }
 }
