@@ -26,4 +26,9 @@ public class KinobillettRepository {
         String sql = "DELETE FROM Kinobillett";
         db.update(sql);
     }
+
+    public void slettEn(int id){
+        String sql = "DELETE FROM Kinobillett WHERE id=?;";
+        db.update(sql, id);
+    }
 }
