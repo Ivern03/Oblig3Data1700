@@ -2,6 +2,7 @@ package com.example.oblig3data1700;
 
 public class Kinobillett {
 
+    private int id;
     private String filmNavn;
     private String antall;
     private String fornavn;
@@ -11,7 +12,8 @@ public class Kinobillett {
 
 
     // Constructor
-    public Kinobillett(String filmNavn, String antall, String fornavn, String etternavn, int telefonnr, String epost) {
+    public Kinobillett(int id, String filmNavn, String antall, String fornavn, String etternavn, int telefonnr, String epost) {
+        this.id = id;
         this.filmNavn = filmNavn;
         this.antall = antall;
         this.fornavn = fornavn;
@@ -26,6 +28,13 @@ public class Kinobillett {
 
 
     // Get and Set methods
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+
     public String getFilmNavn() {
         return filmNavn;
     }
