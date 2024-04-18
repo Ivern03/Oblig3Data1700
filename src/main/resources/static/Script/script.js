@@ -186,11 +186,11 @@ function hentAlle(){
 
 // Formatting the table for the print out.
 function formaterBillett(billetter) {
-    let ut = "<table class='table table-striped'><thead class='thead-dark'><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th><th></th></thead>";
+    let ut = "<table class='table table-striped'><thead class='thead-dark'><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></thead>";
 
     for (const billett of billetter) {
         ut += "<tr><td>" +billett.filmNavn + "</td><td>" +billett.antall + "</td><td>" + billett.fornavn + "</td><td>" + billett.etternavn
-            + "</td><td>" + billett.telefonnr + "</td><td>" + billett.epost + "</td><td>" + "<button class='btn btn-danger' onclick='slettEn(" + billett.id + ")'>Slett</button>" + "</td><tr>";
+            + "</td><td>" + billett.telefonnr + "</td><td>" + billett.epost + "</td></tr>";
     }
     ut += "</table>";
     $("#billettene").html(ut);
@@ -200,13 +200,6 @@ function formaterBillett(billetter) {
 
 function slettBilletter(){
     $.get("/slettAlle", function (){
-        hentAlle();
-    })
-}
-
-function slettEn(id) {
-    let url = "/slettEn?id=" + id;
-    $.get(url, function () {
         hentAlle();
     })
 }
