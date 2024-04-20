@@ -1,4 +1,4 @@
-CREATE TABLE Kinobillett (
+CREATE TABLE IF NOT EXISTS Kinobillett (
     id INTEGER AUTO_INCREMENT,
     filmNavn VARCHAR(255),
     antall VARCHAR(255),
