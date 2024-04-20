@@ -4,3 +4,4 @@ OsloMet brukernavn: ivchr0414
 GitHub brukernavn: Ivern03
 
 Kort beskrivelse av applikasjon (5-10 setninger): Bestilling av kinobilletter med lagring i database. Link til video av applikasjonen:
+https://youtu.be/hZ0S-xfuV0g
